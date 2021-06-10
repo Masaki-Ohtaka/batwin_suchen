@@ -10,6 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_06_04_170616) do
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.text "profile", null: false
+    t.date "birthday", null: false
+    t.integer "gender", null: false
+    t.text "first_name", null: false
+    t.text "last_name", null: false
+    t.text "first_kana", null: false
+    t.text "last_kana", null: false
+    t.integer "location_id", null: false
+    t.string "municipality", null: false
+    t.text "address", null: false
+    t.text "building_name"
+    t.text "phone_number", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
 
 end
