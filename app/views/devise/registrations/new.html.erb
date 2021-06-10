@@ -8,6 +8,11 @@
         <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
 
         <div class="field">
+          <%= f.label :nickname, "ユーザー名" %><br />
+          <%= f.text_field :nickname, id:"user_name" %>
+        </div>
+
+        <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>
         </div>
@@ -25,23 +30,82 @@
         </div>
 
         <div class="field">
-          <%= f.label :name, "ユーザー名" %><br />
-          <%= f.text_field :name, id:"user_name" %>
+          <%= f.label :profile, "職業" %><br />
+          <%= f.text_field :profile %>
+        </div>
+
+
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">生年月日</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class='input-birth-wrap'>
+            <%= raw sprintf(
+                  f.date_select(
+                    :birthday,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year - 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+          </div>
         </div>
 
         <div class="field">
-          <%= f.label :profile, "プロフィール" %><br />
-          <%= f.text_area :profile, class: :form__text, id:"user_profile" %>
+          <%= f.label :man , "男性"%>
+          <%= f.radio_button :gender, :man %>
+          <%= f.label :woman ,"女性"%>
+          <%= f.radio_button :gender, :woman %>
+        </div>
+        <div class="field">
+          <%= f.radio_button :gender, :male %>
+          <%= f.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
+          <%= f.radio_button :gender, :female %>
+          <%= f.label :gender, "女性", {value: :female, style: "display: inline-block;"} %>
         </div>
 
         <div class="field">
-          <%= f.label :occupation, "所属" %><br />
-          <%= f.text_area :occupation, class: :form__text, id:"user_occupation" %>
+          <%= f.label :first_name , "" %><br />
+          <%= f.text_field :first_name  %>
         </div>
 
         <div class="field">
-          <%= f.label :position, "役職" %><br />
-          <%= f.text_area :position, class: :form__text, id:"user_position" %>
+          <%= f.label :building_name , "建物名" %><br />
+          <%= f.text_field :building_name  %>
+        </div>
+
+        <div class="field">
+          <%= f.label :building_name , "建物名" %><br />
+          <%= f.text_field :building_name  %>
+        </div>
+
+        <div class="field">
+          <%= f.label :location_id, "都道府県" %><br />
+          <%= f.collection_select :location_id, Location.all, :id, :name, {} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :municipality , "市区町村" %><br />
+          <%= f.text_field :municipality  %>
+        </div>
+
+        <div class="field">
+          <%= f.label :address, "番地" %><br />
+          <%= f.text_field :address %>
+        </div>
+
+        <div class="field">
+          <%= f.label :building_name , "建物名" %><br />
+          <%= f.text_field :building_name  %>
+        </div>
+
+        <div class="field">
+          <%= f.label :phone_number, "電話番号" %><br />
+          <%= f.text_field :phone_number %>
         </div>
 
         <div class="actions">
