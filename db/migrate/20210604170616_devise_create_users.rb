@@ -10,15 +10,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.text    :profile,            null: false
       t.date    :birthday,           null: false
       t.integer :gender,             null: false
-      t.text    :first_name,         null: false
-      t.text    :last_name,          null: false
-      t.text    :first_kana,          null: false
-      t.text    :last_kana,          null: false
+      t.string  :first_name,         null: false
+      t.string  :last_name,          null: false
+      t.string  :first_kana,         null: false
+      t.string  :last_kana,          null: false
+      t.string  :postal_code,        null: false
       t.integer :location_id,        null: false
       t.string  :municipality,       null: false
-      t.text    :address,            null: false
-      t.text    :building_name
-      t.text    :phone_number,       null: false
+      t.string  :address,            null: false
+      t.string  :building_name
+      t.string  :phone_number,       null: false
       
 
 

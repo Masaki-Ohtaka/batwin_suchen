@@ -14,6 +14,7 @@
 | last_name        | string        | null: false               |
 | first_kana       | string        | null: false               |
 | last_kana        | string        | null: false               |
+| postal_code      | string        | null: false               |
 | location_id      | integer       | null: false               |
 | municipality     | string        | null: false               |
 | address          | string        | null: false               |
