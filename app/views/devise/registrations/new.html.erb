@@ -2,11 +2,13 @@
   <div class="inner">
     <div class="form__wrapper">
       <h2 class="page-heading">ユーザー新規登録</h2>
-      <p><b>※</b>印は必須項目です。</p>
+      
 
         <%# 「モデル名」にはUserモデルであれば@userを渡しましょう。%>
         <%# 「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
         <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+          <%= devise_error_messages! %>
+          <p><b>※</b>印は必須項目です。</p>
           <table border="0" cellpadding="0" cellspacing="0">
             <tbody>
               <tr>

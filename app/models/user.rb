@@ -15,11 +15,11 @@ class User < ApplicationRecord
     validates :last_name
     validates :first_kana
     validates :last_kana
-    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :location_id, numericality: { other_than:0} 
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'が認識できません. ハイフン（-）を含めてください' }
+    validates :location_id, numericality: { other_than:0,message: "都道府県を選択してください"} 
     validates :municipality
     validates :address
-    validates :phone_number,format: { with: /\A\d{10,11}\z/, message: 'is invalid. Include half-width numbers' }
+    validates :phone_number,format: { with: /\A\d{10,11}\z/, message: 'が認識できません. 半角数字で入力してください' }
   end
   
   has_many :prototypes
