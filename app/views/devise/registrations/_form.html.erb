@@ -20,7 +20,8 @@
               <tr>
                 <th>
                   <%= f.label :password, "パスワード（6文字以上）" %>
-                  <% if @minimum_password_length %>
+                   <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
                   <% end %><b>※</b>
                 </th>
                 <td>
@@ -61,13 +62,13 @@
                     <tbody>
                       <tr>
                         <td>
-                          <%= f.label :first_name , "姓" %><%# <label style="width:30px;font-weight:normal;" for="form_family_name">姓</label> %>  
-                          <%= f.text_field :first_name %><%# <input style="width:95px;" name="family_name" value="" type="text" id="form_family_name">  %>
+                          <%= f.label :first_name , "姓" %>
+                          <%= f.text_field :first_name %>
                           <br>
                         </td>
                         <td>
-                          <%= f.label :last_name , "名" %><%# <label style="width:30px;font-weight:normal;" for="form_given_name">名</label> %>
-                          <%= f.text_field :last_name %><%# <input style="width:95px;" name="given_name" value="" type="text" id="form_given_name"> %>
+                          <%= f.label :last_name , "名" %>
+                          <%= f.text_field :last_name %>
                           <br>
                         </td>
                       </tr>
@@ -86,13 +87,13 @@
                     <tbody>
                       <tr>
                         <td>
-                          <%= f.label :first_kana , "セイ" %><%# <label style="width:30px;font-weight:normal;" for="form_family_name_kana">セイ</label> %>
-                          <%= f.text_field :first_kana %><%# <input style="width:95px;" name="family_name_kana" value="" type="text" id="form_family_name_kana"> %>
+                          <%= f.label :first_kana , "セイ" %>
+                          <%= f.text_field :first_kana %>
                           <br>
                         </td>
                         <td>
-                          <%= f.label :last_kana , "メイ" %><%# <label style="width:30px;font-weight:normal;" for="form_given_name_kana">メイ</label> %>
-                          <%= f.text_field :last_kana %><%# <input style="width:95px;" name="given_name_kana" value="" type="text" id="form_given_name_kana"> %>
+                          <%= f.label :last_kana , "メイ" %>
+                          <%= f.text_field :last_kana %>
                           <br>
                         </td>
                       </tr>
@@ -109,10 +110,10 @@
                 
                 <td>
                   <div class="mt4">
-                    <%= f.label :man , "男性"%><%# <label style="padding:1.5px 20px 0px 7px;vertical-align:top;" for="form_inquiry_ctg_1">お問合せ</label>%>
-                    <%= f.radio_button :gender, :man %><%# <input id="form_inquiry_ctg_1" name="inquiry_ctg" value="1" checked="checked" type="radio"> %>
-                    <%= f.label :woman ,"女性"%><%# <input id="form_inquiry_ctg_2" name="inquiry_ctg" value="2" type="radio">%>
-                    <%= f.radio_button :gender, :woman %><%# <label style="padding:1.5px 20px 0px 7px;vertical-align:top;" for="form_inquiry_ctg_2">見学希望</label> %>
+                    <%= f.label :man , "男性"%>
+                    <%= f.radio_button :gender, :man %>
+                    <%= f.label :woman ,"女性"%>
+                    <%= f.radio_button :gender, :woman %>
                   </div>
                 </td>
               </tr>
@@ -151,13 +152,13 @@
                 <td>
                   例）171-0022
                   <div style="margin:5px 0px 10px 0px;">
-                    <%= f.label :postal_code , "郵便番号" %><%# <input style="width:140px;" name="zipcode" value="" type="text" id="form_zipcode"> %>
-                    <%= f.text_field :postal_code %><%# <input type="button" style="margin-left:19px;width:110px;" id="search_address" value="住所を検索">%>
+                    <%= f.label :postal_code , "郵便番号" %>
+                    <%= f.text_field :postal_code %>
                     <br>
                   </div>
                   
                   <div style="margin:5px 0px 13px 0px;">
-                    <%= f.label :location_id, "都道府県" %><%# <input style="width:450px;" name="address" value="" type="text" id="form_address"> %>
+                    <%= f.label :location_id, "都道府県" %>
                     <%= f.collection_select :location_id, Location.all, :id, :name, {} %>
                     <br>
                   </div>
@@ -185,10 +186,10 @@
 
               <tr>
                 <th>
-                  <%= f.label :phone_number, "電話番号" %><%# <label for="form_tel">電話番号</label> %> <b>※</b>
+                  <%= f.label :phone_number, "電話番号" %><b>※</b>
                 </th>
                 <td>
-                  <%= f.text_field :phone_number %><%# <input style="width:270px;" name="tel" value="" type="text" id="form_tel">%>　例）03-6809-8950
+                  <%= f.text_field :phone_number %>　例）03-6809-8950
                   <br>
                   <div style="margin-top:13px;">※お電話番号の明記のない方は、問い合わせの受付を行っておりません。</div>
                 </td>
