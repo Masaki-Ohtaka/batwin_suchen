@@ -2,14 +2,39 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, password_length: 6..128
 
+  enum gender: { man: 0, woman: 1}
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  # validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8}\z/i }, on: :create
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数混合入力です', on: :create
+  # validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8}\z/i, message: 'は半角英数混合で8文字です' }, allow_blank: true, on: :update
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数混合入力です', allow_blank: true, on: :update
   with_options presence: true do
-    validates :name
+    validates :nickname
     validates :profile
-    validates :occupation
-    validates :position
+    validates :birthday
+    validates :gender
+    validates :first_name
+    validates :last_name
+    validates :first_kana
+    validates :last_kana
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'が認識できません.半角英数字とハイフン（-）を含めてください' }
+    validates :location_id, numericality: { other_than:0,message: "を選択してください"} 
+    validates :municipality
+    validates :address
+    validates :phone_number,format: { with: /\A\d{10,11}\z/, message: 'が認識できません. 半角数字で入力してください' }
   end
+
+  def update_without_current_password(params)
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+    update(params)
+  end
+
+  
   
   has_many :prototypes
   has_many :comments

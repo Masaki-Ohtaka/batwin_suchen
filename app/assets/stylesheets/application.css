@@ -70,6 +70,7 @@ a {
   background: #87CEFA;
 }
 
+
 .nav__logout{
   display: inline-block;
   padding: 0.4em 1.6em;
@@ -83,9 +84,98 @@ a {
 }
 
 /* フォーム周り */
-.form__wrapper{
-  min-height: calc(100vh - 161px);
+
+.inner table td {
+  font-size: 13px;
+  text-indent: 8px;
+  line-height: 100%;
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  height: 29px; 
 }
+
+.form__wrapper{ /*conform*/
+  min-height: calc(100vh - 161px);
+  padding: 1.4em;
+  padding-top: 2em;
+  margin: 2em 0;
+  margin-bottom: 1.4rem;
+  border-radius: 5px;
+  background: #f6f0e9;
+  
+}
+.form__wrapper th {/*サンプル*/
+  padding: 8px;
+  background: #f1f1f1;
+  border: 1px solid #dbdbdb;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.form__wrapper td {/*サンプル*/
+  padding: 13px!important;
+  text-indent: 0!important;
+  line-height: 100%;
+  vertical-align: middle;
+}
+
+.form__wrapper b {/*サンプル*/
+  color: #e50000!important;
+  font-size: 0.8em;
+}
+
+th {/*サンプル*/
+  text-align: left;
+}
+
+.form-name td {
+  padding: 0px!important;
+  margin: -3px 0px -3px 0px!important;
+  border: none!important;
+  vertical-align: middle;
+}
+
+tbody { /*サンプル*/
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+label {/*サンプル*/
+  width: 30px;
+  /* font-weight: normal; */
+  /* display: inline-block; */
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+
+.input-birth-wrap {
+  display: flex;
+}
+
+input[type=text] ,input[type=radio_button] {
+  width: 95px;
+  font-weight: normal;
+  /* display: inline-block; */
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+
+button, input, select, textarea { /* サンプル*/
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+tr { /*サンプル*/
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.field_with_errors{
+  display: contents
+} 
 
 .form__text {
   width: 50%;
@@ -96,7 +186,8 @@ a {
 }
 
 .actions{
-  margin-bottom: 40px;
+  margin: 1.555em auto;
+  display: block;
 }
 
 .form__btn{

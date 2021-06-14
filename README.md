@@ -2,21 +2,24 @@
 
 ## users テーブル
 
-| Column           | Type          | Options                        |
-| ---------------- | ------------- | -------------------------------|
-| email            | string        | null: false                    |
-| password         | string        | null: false                    |
-| name             | string        | null: false                    |
-| last_name        | string        | null: false                    |
-| birthday         | date          | null: false                    |
-| first_name       | string        | null: false                    |
-| last_kana        | string        | null: false                    |
-| first_kana       | string        | null: false                    |
-| location_id      | integer       | null: false                    |
-| municipality     | string        | null: false                    |
-| address          | string        | null: false                    |
-| building_name    | string        |                                |
-| phone_number     | string        | null: false                    |
+| Column           | Type          | Options                   |
+| ---------------- | ------------- | ------------------------- |
+| nickname         | string        | null: false               |
+| email            | string        | null: false, unique: true |
+| password         | string        | null: false               |
+| profile          | string        | null: false               |
+| birthday         | date          | null: false               |
+| gender           | integer       | null: false               |
+| first_name       | string        | null: false               |
+| last_name        | string        | null: false               |
+| first_kana       | string        | null: false               |
+| last_kana        | string        | null: false               |
+| postal_code      | string        | null: false               |
+| location_id      | integer       | null: false               |
+| municipality     | string        | null: false               |
+| address          | string        | null: false               |
+| building_name    | string        |                           |
+| phone_number     | string        | null: false               |
 
 ### Association
 
