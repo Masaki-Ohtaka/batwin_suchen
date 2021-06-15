@@ -17,6 +17,25 @@
           <div class="nav__left">
             <%= link_to image_tag("logo.png", class: :logo), root_path %>
           </div>
+          <%# 施設ボタン %>
+          <%# ログインしているときは以下を表示するようにしましょう %>
+          <% if foundation_signed_in? %>
+             <div class="nav__right">
+              <%= link_to "施設編集",edit_foundation_registration_path, class: :nav__btn %>
+              <%= link_to "ログアウト", destroy_foundation_session_path, method: :delete, class: :nav__btn %>              
+            </div>
+          <% else %>
+          <%# // ログインしているときは上記を表示するようにしましょう %>
+          <%# ログインしていないときは以下を表示するようにしましょう %>
+            <div class="nav__right">
+              <%= link_to "ログイン", new_foundation_session_path, class: :nav__btn %>
+              <%= link_to "施設登録", new_foundation_registration_path, class: :nav__btn %>
+            </div>
+          <% end %>
+          <%# // ログインしていないときは上記を表示するようにしましょう %>
+
+
+          <%# %>
           <%# ログインしているときは以下を表示するようにしましょう %>
           <% if user_signed_in? %>
              <div class="nav__right">

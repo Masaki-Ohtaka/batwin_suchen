@@ -2,7 +2,7 @@
   <div class="inner">
     <div class="form__wrapper">
       <h2 class="page-heading">施設編集</h2>
-      <%= form_with model: @foundation, url:  edit_foundation_registration_path, local: true do |f| %>
+      <%= form_with model: @foundation, url: foundation_registration_path, local: true do |f| %>
         <%= render partial: "form", locals:{f: f, edit_flag: true} %>
         
       <% end %>
