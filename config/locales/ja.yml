@@ -18,7 +18,8 @@ ja:
 
       foundation:
         email: Eメール
-        ppassword: パスワード
+        password: パスワード
+        password_confirmation: パスワード（確認用）
         facility_name: 施設名
         postal_code: 郵便番号
         location_id: 都道府県
