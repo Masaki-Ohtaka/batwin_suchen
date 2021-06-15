@@ -23,7 +23,24 @@
 
 ### Association
 
-- has_many :prototypes
+- has_many :comments
+
+## foundation テーブル
+
+| Column           | Type          | Options                   |
+| ---------------- | ------------- | ------------------------- |
+| facility_name    | string        | null: false               |
+| email            | string        | null: false, unique: true |
+| password         | string        | null: false               |
+| postal_code      | string        | null: false               |
+| location_id      | integer       | null: false               |
+| municipality     | string        | null: false               |
+| address          | string        | null: false               |
+| building_name    | string        |                           |
+| phone_number     | string        | null: false               |
+
+### Association
+
 - has_many :comments
 
 ## prototypes テーブル

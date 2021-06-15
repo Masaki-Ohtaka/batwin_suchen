@@ -1,22 +1,14 @@
-class User < ApplicationRecord
+class Foundation < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, password_length: 6..128
+         :recoverable, :rememberable, :validatable
 
-  enum gender: { man: 0, woman: 1}
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数混合入力です', on: :create
   validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数混合入力です', allow_blank: true, on: :update
   with_options presence: true do
-    validates :nickname
-    validates :profile
-    validates :birthday
-    validates :gender
-    validates :first_name
-    validates :last_name
-    validates :first_kana
-    validates :last_kana
+    validates :facility_name
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'が認識できません.半角英数字とハイフン（-）を含めてください' }
     validates :location_id, numericality: { other_than:0,message: "を選択してください"} 
     validates :municipality
@@ -31,9 +23,4 @@ class User < ApplicationRecord
     end
     update(params)
   end
-
-  
-  
-  has_many :prototypes
-  has_many :comments
 end
