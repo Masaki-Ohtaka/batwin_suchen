@@ -41,110 +41,16 @@
 
               <tr>
                 <th>
-                  <%= f.label :nickname, "ユーザー名" %>
+                  <%= f.label :facility_name, "施設名" %>
                   <b>※</b>
                 </th>
                 <td>
-                  <%= f.text_field :nickname, id:"user_name" %>
+                  <%= f.text_field :facility_name, id:"user_name" %>
                   <br>
                 </td>
               </tr>
 
-              <tr>
-                <th>
-                  お名前 
-                  <b>※</b>
-                </th>
-                <td>
-                  <table class="form-name" style="width:290px;">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <%= f.label :first_name , "姓" %>
-                          <%= f.text_field :first_name %>
-                          <br>
-                        </td>
-                        <td>
-                          <%= f.label :last_name , "名" %>
-                          <%= f.text_field :last_name %>
-                          <br>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
 
-              <tr>
-                <th>
-                  お名前（カナ）
-                  <b>※</b>
-                </th>
-                <td>
-                  <table class="form-name" style="width:290px;">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <%= f.label :first_kana , "セイ" %>
-                          <%= f.text_field :first_kana %>
-                          <br>
-                        </td>
-                        <td>
-                          <%= f.label :last_kana , "メイ" %>
-                          <%= f.text_field :last_kana %>
-                          <br>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  性別
-                  <b>※</b>
-                </th>
-                
-                <td>
-                  <div class="mt4">
-                    <%= f.label :man , "男性"%>
-                    <%= f.radio_button :gender, :man %>
-                    <%= f.label :woman ,"女性"%>
-                    <%= f.radio_button :gender, :woman %>
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  <%= f.label :profile, "職業" %>
-                  <b>※</b>
-                </th>
-                <td>
-                  <%= f.text_field :profile %>
-                  <br>
-                </td>
-              </tr>
-
-              <tr>
-                <th>生年月日 <b>※</b></th>
-                <td>
-                  <div class="input-birth-wrap">
-                    <%= raw sprintf(
-                      f.date_select(
-                        :birthday,
-                        class:'select-birth',
-                        id:"birth-date",
-                        use_month_numbers: true,
-                        prompt:'--',
-                        start_year: 1930,
-                        end_year: (Time.now.year - 5),
-                        date_separator: '%s'),
-                      "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-                  </div>
-                </td>
-              </tr>
               <tr>
                 <th>ご住所 <b>※</b></th>
                 <td>

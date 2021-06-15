@@ -16,6 +16,17 @@ ja:
         address:      番地
         phone_number: 電話番号
 
+      foundation:
+        email: Eメール
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        facility_name: 施設名
+        postal_code: 郵便番号
+        location_id: 都道府県
+        municipality: 市区町村
+        address:      番地
+        phone_number: 電話番号
+
       tweet:
         text: テキスト
         image: 画像
