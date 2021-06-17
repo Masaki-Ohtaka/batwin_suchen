@@ -1,0 +1,58 @@
+<%= form_with model: モデル名, local: true do |f|%>
+   <%= devise_error_messages! %>
+          
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr>
+                <th>
+                  <%= f.label :name, "名前" %>
+                  <b>※</b>
+                </th>
+                <td>
+                  <%= f.email_field :name, id:"user_email", autofocus: true, autocomplete: "email" %>　半角英数字
+                  <br>
+                </td>
+              </tr>
+
+               <tr>
+                <th>
+                  性別
+                  <b>※</b>
+                </th>
+                <td>
+                  <div class="mt4">
+                    男性<%= f.radio_button :gender_id, 1,{checked: true} %>
+                    女性<%= f.radio_button :gender_id, 2 %>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <%= f.label :personality, "性格" %>
+                  <b>※</b>
+                </th>
+                <td>
+                  <%= f.text_field :personality, id:"user_name" %>
+                  <br>
+                </td>
+              </tr>
+              <tr>
+
+                <th>
+                  <%= f.label :word, "その他" %>
+                  <b>※</b>
+                </th>
+                <td>
+                  <%= f.text_field :word, id:"user_name" %>
+                  <br>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+          <div class="actions">
+            <%= f.submit "保存", class: :form__btn  %>
+          </div>
+<% end %>
+      

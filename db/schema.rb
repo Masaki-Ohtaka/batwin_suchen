@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_002637) do
+ActiveRecord::Schema.define(version: 2021_06_16_232949) do
 
   create_table "foundations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "facility_name", null: false
@@ -31,13 +31,24 @@ ActiveRecord::Schema.define(version: 2021_06_15_002637) do
     t.index ["reset_password_token"], name: "index_foundations_on_reset_password_token", unique: true
   end
 
+  create_table "job_change_dogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "gender_id", null: false
+    t.string "personality", null: false
+    t.text "word", null: false
+    t.bigint "foundation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["foundation_id"], name: "index_job_change_dogs_on_foundation_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.text "profile", null: false
     t.date "birthday", null: false
-    t.integer "gender", null: false
+    t.integer "gender_id", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "first_kana", null: false
@@ -57,4 +68,5 @@ ActiveRecord::Schema.define(version: 2021_06_15_002637) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "job_change_dogs", "foundations"
 end

@@ -1,0 +1,2 @@
+class JobChangeDog < ApplicationRecord
+end

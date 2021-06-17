@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'job_change_dogs/index'
   devise_for :foundations, controllers: {
     sessions:      'foundations/sessions',
     passwords:     'foundations/passwords',
@@ -10,6 +11,6 @@ Rails.application.routes.draw do
     passwords:     'users/passwords', 
     registrations: 'users/registrations'
   }
-  root to: "prototypes#index"
+  root to: "job_change_dogs#index"
   
 end
