@@ -21,7 +21,7 @@
           <%# ログインしているときは以下を表示するようにしましょう %>
           <% if foundation_signed_in?%>
              <div class="nav__center">
-              <%# <%= link_to "ジョブ犬登録", new_job_change_dog_path, class: :nav__btn %> 
+              <%= link_to "ジョブ犬登録", "/foundations/job_change_dogs/new", class: :nav__btn %> 
               <%= link_to "施設編集", edit_foundation_registration_path, class: :nav__btn %>
               <%= link_to "ログアウト", destroy_foundation_session_path, method: :delete, class: :nav__btn %>              
             </div>

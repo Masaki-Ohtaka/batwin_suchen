@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  scope :foundations do
+    resources :job_change_dogs
+  end
   devise_for :foundations, controllers:{
     sessions:      'foundations/sessions',
     passwords:     'foundations/passwords',

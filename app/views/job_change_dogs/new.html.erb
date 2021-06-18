@@ -3,6 +3,7 @@
     <div class="form__wrapper">
       <h2 class="page-heading">新規ジョブ犬投稿</h2>
         <%# 部分テンプレートでフォームを表示する %>
+        <%# <%= render 'layouts/error_messages', model: form.object %>
         <%= render partial: "form", locals: { job_change_dog: @job_change_dog }%>
     </div>
   </div>

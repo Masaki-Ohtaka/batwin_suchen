@@ -1,6 +1,6 @@
 class JobChangeDogsController < ApplicationController
   before_action :set_job_change_dog, only: [:edit, :show]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  # before_action :authenticate_fondation!, only: [:new, :edit, :update, :destroy]
   def index
     @job_change_dog = JobChangeDog.includes(:foundation)
     
