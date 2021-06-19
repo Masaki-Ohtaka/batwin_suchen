@@ -51,13 +51,26 @@
 | gender_id   | integer     | null: false                   |
 | personality | string      | null: false                   |
 | word        | text        | null: false                   |
+| image       | text        | null: false                   |
 | foundation  | references  | null: false, foreign_key:true |
 
 ### Association
 
 - belongs_to :foundation
 - has_many :comments
+- has_many :images
 
+
+## images テーブル
+
+| Column         | Type        | Options                       |
+| -------------- | ----------- | ----------------------------- |
+| image_url      | text        | null: false                   |
+| job_change_dog | references  | null: false, foreign_key:true |
+
+### Association
+
+- belongs_to :job_change_dog
 
 ## comments テーブル
 
