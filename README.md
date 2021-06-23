@@ -58,14 +58,14 @@
 
 - belongs_to :foundation
 - has_many :comments
-- has_many :images
+- has_many :dogs
 
 
-## images テーブル
+## dogs テーブル
 
 | Column         | Type        | Options                       |
 | -------------- | ----------- | ----------------------------- |
-| image_url      | text        | null: false                   |
+| image      | text        | null: false                   |
 | job_change_dog | references  | null: false, foreign_key:true |
 
 ### Association

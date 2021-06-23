@@ -1,5 +1,6 @@
 class JobChangeDog < ApplicationRecord
   belongs_to :foundation
-  has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images, allow_destroy: true
+  # has_one_attached :image
+  has_many :dogs, dependent: :destroy
+  accepts_attachments_for :dogs, attachment: :image
 end

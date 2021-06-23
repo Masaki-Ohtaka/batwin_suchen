@@ -85,6 +85,12 @@ a {
 
 /* フォーム周り */
 
+/* img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+} */
+
 .inner table td {
   font-size: 13px;
   text-indent: 8px;

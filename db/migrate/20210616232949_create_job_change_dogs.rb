@@ -5,7 +5,6 @@ class CreateJobChangeDogs < ActiveRecord::Migration[6.0]
       t.integer   :gender_id,   null: false
       t.string    :personality, null: false
       t.text      :word,        null: false
-      t.text      :image,        null: false
 
       t.references :foundation, foreign_key: true
       t.timestamps

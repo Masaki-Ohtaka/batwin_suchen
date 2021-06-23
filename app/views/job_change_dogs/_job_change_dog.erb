@@ -1,9 +1,11 @@
 <div class="card">
-  <%# <%= link_to image_tag("プロトタイプの画像", class: :card__img ), root_path%>
+  <% job_change_dog.dogs.first(1).each do |image| %> 
+   <%= link_to attachment_image_tag(image, :image, size: '200x200'), job_change_dog_path(job_change_dog.id) %>
+  <% end %> 
   <div class="card__body">
     <%= link_to "#{job_change_dog.name}", job_change_dog_path(job_change_dog.id), class: :card__title%>
     <p class="card__summary">
-      <%= "プロトタイプのキャッチコピー" %>
+      <%= job_change_dog.word %>
     </p>
     <%= link_to "by プロトタイプの投稿者名", root_path, class: :card__user %>
   </div>
