@@ -53,8 +53,8 @@ RSpec.describe User, type: :model do
         another_user.valid?
         expect(another_user.errors.full_messages).to include("Eメールはすでに存在します")
       end
-      it 'genderが空だと登録できないこと' do
-        @user.gender = ''
+      it 'gender_idが空だと登録できないこと' do
+        @user.gender_id = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("性別を入力してください")
       end

@@ -19,15 +19,17 @@
           </div>
           <%# 施設ボタン %>
           <%# ログインしているときは以下を表示するようにしましょう %>
-          <% if foundation_signed_in? %>
-             <div class="nav__right">
-              <%= link_to "施設編集",edit_foundation_registration_path, class: :nav__btn %>
+          <% if foundation_signed_in?%>
+             <div class="nav__center">
+              <%= link_to "ジョブ犬登録", "/foundations/job_change_dogs/new", class: :nav__btn %> 
+              <%= link_to "施設編集", edit_foundation_registration_path, class: :nav__btn %>
               <%= link_to "ログアウト", destroy_foundation_session_path, method: :delete, class: :nav__btn %>              
             </div>
-          <% else %>
+          <% elsif !user_signed_in? %>
           <%# // ログインしているときは上記を表示するようにしましょう %>
           <%# ログインしていないときは以下を表示するようにしましょう %>
-            <div class="nav__right">
+            
+            <div class="nav__center">
               <%= link_to "ログイン", new_foundation_session_path, class: :nav__btn %>
               <%= link_to "施設登録", new_foundation_registration_path, class: :nav__btn %>
             </div>
@@ -42,7 +44,7 @@
               <%= link_to "ユーザー編集",edit_user_registration_path, class: :nav__btn %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__btn %>              
             </div>
-          <% else %>
+          <% elsif !foundation_signed_in?%>
           <%# // ログインしているときは上記を表示するようにしましょう %>
           <%# ログインしていないときは以下を表示するようにしましょう %>
             <div class="nav__right">

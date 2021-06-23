@@ -1,0 +1,10 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">新規ジョブ犬投稿</h2>
+      <p><b>※</b>印は必須項目です。</p>
+        <%# 部分テンプレートでフォームを表示する %>
+        <%= render partial: "form", locals: { job_change_dog: @job_change_dog }%>
+    </div>
+  </div>
+</div>

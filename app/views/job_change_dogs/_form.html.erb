@@ -1,0 +1,67 @@
+<%= form_with model: @job_change_dog, local: true do |f|%>
+<%= render 'layouts/error_messages', model: f.object %>
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+            <div class="field">
+                <%= f.label :image, "犬の画像" %><br />
+                <%# <%= f.file_field :image , id: 'dog_image'%>
+                <%= f.attachment_field :dogs_images, multiple: true %>
+                <%# <%= f.file_field :images,  multiple: true , name: 'dog[images][]', id: 'dog_image' %>
+            </div>
+            <%# <div id="image-list"></div> %>
+              <tr>
+                <th>
+                  <%= f.label :name, "犬の名前" %>
+                  <b>※</b>
+                </th>
+                <td>
+                  <%= f.text_field :name, id:"user_name" %>
+                  <br>
+                </td>
+              </tr>
+
+               <tr>
+                <th>
+                  性別
+                  <b>※</b>
+                </th>
+                <td>
+                  <div class="mt4">
+                    男性<%= f.radio_button :gender_id, 1,{checked: true} %>
+                    女性<%= f.radio_button :gender_id, 2 %>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <%= f.label :personality, "性格" %>
+                  <b>※</b>
+                </th>
+                <td>
+                  <%= f.text_field :personality, id:"user_name" %>
+                  <br>
+                </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <%= f.label :word, "その他" %>
+                  <b>※</b>
+                </th>
+                <td>
+                  <%= f.text_field :word, id:"user_name" %>
+                  <br>
+                </td>
+              </tr> 
+            </tbody>
+          </table>
+          <div class="actions">
+            <%= f.submit "保存", class: :form__btn  %>  
+          </div>
+           <%# <%= image_tag @job_change_dog.image, id: 'image' if @job_change_dog.image.present? %>
+           <%# <% @job_change_dog.images.each do |image| %> 
+            <%# <%= image_tag image, class: 'images' %> 
+           <%# <% end %>
+<% end %>
+      

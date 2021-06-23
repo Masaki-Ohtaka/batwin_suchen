@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :authenticate_foundation!
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
@@ -44,19 +45,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :profile, :birthday, :gender, :first_name, :last_name, :first_kana, :last_kana, :postal_code, :location_id, :municipality, :address, :building_name, :phone_number])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :profile, :birthday, :gender_id, :first_name, :last_name, :first_kana, :last_kana, :postal_code, :location_id, :municipality, :address, :building_name, :phone_number])
    end
 
    
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_account_update_params
-     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :profile, :birthday, :gender, :first_name, :last_name, :first_kana, :last_kana, :postal_code, :location_id, :municipality, :address, :building_name, :phone_number])
+     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :profile, :birthday, :gender_id, :first_name, :last_name, :first_kana, :last_kana, :postal_code, :location_id, :municipality, :address, :building_name, :phone_number])
    end
 
    def update_resource(resource, params)
     resource.update_without_password(params)
    end
+
+
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

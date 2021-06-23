@@ -9,7 +9,7 @@
 | password         | string        | null: false               |
 | profile          | string        | null: false               |
 | birthday         | date          | null: false               |
-| gender           | integer       | null: false               |
+| gender_id        | integer       | null: false               |
 | first_name       | string        | null: false               |
 | last_name        | string        | null: false               |
 | first_kana       | string        | null: false               |
@@ -40,24 +40,37 @@
 | phone_number     | string        | null: false               |
 
 ### Association
-
+- has_many :job_change_dogs
 - has_many :comments
 
-## prototypes テーブル
+## job_change_dogs テーブル
 
 | Column      | Type        | Options                       |
-| --------    | ------      | -----------                   |
-| title       | string      | null: false                   |
-| catch_copy  | string      | null: false                   |
-| concept     | text        | null: false                   |
-| image       |             |                               |
-| user        | references  | null: false, foreign_key:true |
+| ----------- | ----------- | ----------------------------- |
+| name        | string      | null: false                   |
+| gender_id   | integer     | null: false                   |
+| personality | string      | null: false                   |
+| word        | text        | null: false                   |
+| image       | text        | null: false                   |
+| foundation  | references  | null: false, foreign_key:true |
 
 ### Association
 
-- belongs_to :user
+- belongs_to :foundation
 - has_many :comments
+- has_many :dogs
 
+
+## dogs テーブル
+
+| Column         | Type        | Options                       |
+| -------------- | ----------- | ----------------------------- |
+| image      | text        | null: false                   |
+| job_change_dog | references  | null: false, foreign_key:true |
+
+### Association
+
+- belongs_to :job_change_dog
 
 ## comments テーブル
 

@@ -107,14 +107,24 @@
                 </th>
                 
                 <td>
+                  <%# <div class="mt4"> %>
+                    <%# <%= f.label :man , "男性"%> 
+                    <%# <%= f.radio_button :gender, :man %>
+                    <%# <%= f.label :woman ,"女性"%> 
+                    <%# <%= f.radio_button :gender, :woman %> 
+                  <%# </div> %>
+
                   <div class="mt4">
-                    <%= f.label :man , "男性"%>
-                    <%= f.radio_button :gender, :man %>
-                    <%= f.label :woman ,"女性"%>
-                    <%= f.radio_button :gender, :woman %>
+                    <%# <%= f.label :man , "男性"%> 
+                    <%# <%= f.radio_button :gender_id, :man %> 
+                    <%# <%= f.label :woman ,"女性"%> 
+                    <%# <%= f.radio_button :gender_id, :woman %>
+                    男性<%= f.radio_button :gender_id, 1,{checked: true} %>
+                    女性<%= f.radio_button :gender_id, 2 %>
                   </div>
                 </td>
               </tr>
+
 
               <tr>
                 <th>

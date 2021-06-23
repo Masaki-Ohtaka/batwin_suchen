@@ -5,7 +5,7 @@ ja:
         nickname: ニックネーム
         profile: 職業
         birthday: 誕生日
-        gender: 性別
+        gender_id: 性別
         first_name: 姓
         last_name: 名
         first_kana: セイ
