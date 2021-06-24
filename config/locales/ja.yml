@@ -27,6 +27,13 @@ ja:
         address:      番地
         phone_number: 電話番号
 
-      tweet:
-        text: テキスト
-        image: 画像
+      job_change_dog:
+        name: 名前
+        breed_id: 犬の種類
+        far_color: 毛色
+        personality: 性格
+        surgery_id: 去勢・避妊手術
+        vaccine_id: ワクチン接種
+        publication: 掲載日
+
+

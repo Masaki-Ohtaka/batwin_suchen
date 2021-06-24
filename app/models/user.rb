@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, password_length: 6..128
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :location
+  belongs_to :gender
   # enum gender: { man: 0, woman: 1}
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数混合入力です', on: :create

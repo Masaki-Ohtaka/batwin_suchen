@@ -62,8 +62,13 @@ ActiveRecord::Schema.define(version: 2021_06_22_072945) do
 
   create_table "job_change_dogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.integer "breed_id", null: false
+    t.string "far_color", null: false
     t.integer "gender_id", null: false
     t.string "personality", null: false
+    t.integer "surgery_id", null: false
+    t.integer "vaccine_id", null: false
+    t.date "publication", null: false
     t.text "word", null: false
     t.bigint "foundation_id"
     t.datetime "created_at", precision: 6, null: false

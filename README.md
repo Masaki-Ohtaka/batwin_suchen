@@ -48,10 +48,14 @@
 | Column      | Type        | Options                       |
 | ----------- | ----------- | ----------------------------- |
 | name        | string      | null: false                   |
+| breed_id    | integer     | null: false                   |
+| far_color   | string      | null: false                   |
 | gender_id   | integer     | null: false                   |
 | personality | string      | null: false                   |
+| surgery_id  | integer     | null: false                   |
+| vaccine_id  | integer     | null: false                   |
+| publication | date        | null: false                   |
 | word        | text        | null: false                   |
-| image       | text        | null: false                   |
 | foundation  | references  | null: false, foreign_key:true |
 
 ### Association
@@ -65,7 +69,7 @@
 
 | Column         | Type        | Options                       |
 | -------------- | ----------- | ----------------------------- |
-| image      | text        | null: false                   |
+| image_id       | string      | null: false                   |
 | job_change_dog | references  | null: false, foreign_key:true |
 
 ### Association
