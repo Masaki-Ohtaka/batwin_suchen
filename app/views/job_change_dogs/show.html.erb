@@ -1,34 +1,111 @@
 <main class="main">
   <div class="inner">
     <div class="prototype__wrapper">
-      <p class="prototype__hedding">
-        <%= "プロトタイプのタイトル"%>
-      </p>
-      <%= link_to "by プロトタイプの投稿者", root_path, class: :prototype__user %>
-      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
-      <% if foundation_signed_in? && current_.id == @prototype.user_id %>
-        <div class="prototype__manage">
-          <%= link_to "編集する", root_path, class: :prototype__btn %>
-          <%= link_to "削除する", root_path, class: :prototype__btn %>
+      <table border="0" cellpadding="0" cellspacing="0">
+       
+        <p class="prototype__hedding">
+          <%= @job_change_dog.name%>
+        </p>
+        <%= link_to "#{@job_change_dog.foundation.facility_name}", root_path, class: :prototype__user %>
+        <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+        <% if foundation_signed_in? && current_foundation.id == @job_change_dog.foundation_id %>
+          <div class="prototype__manage">
+            <%= link_to "編集する", root_path, class: :prototype__btn %>
+            <%= link_to "削除する", root_path, class: :prototype__btn %>
+          </div>
+        <% end %>
+        <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+        <div class="prototype__image">
+          <% @job_change_dog.dogs.first(1).each do |image| %> 
+              <%= attachment_image_tag image, :image %> 
+          <% end %>
+          <%# <% if item.purchase.present? %> 
         </div>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
-      <div class="prototype__image">
-        <%# <%= image_tag "プロトタイプの画像" %> 
-      </div>
-      <div class="prototype__body">
-        <div class="prototype__detail">
-          <p class="detail__title">キャッチコピー</p>
-          <p class="detail__message">
-            <%= "プロトタイプのキャッチコピー" %>
-          </p>
-        </div>
-        <div class="prototype__detail">
-          <p class="detail__title">コンセプト</p>
-          <p class="detail__message">
-            <%= "プロトタイプのコンセプト" %>
-          </p>
-        </div>
-      </div>
+        <tbody>
+         <tr>
+          <th>
+            <%= "年齢" %>
+          </th>
+          <td>
+            <%= "#{@job_change_dog.age}歳" %>
+          </td>
+          </tr>
+
+          <tr>
+            <th>
+              <%= "犬の種類" %>
+            </th>
+            <td>
+              <%= @job_change_dog.breed.name %>
+            </td>
+          </tr>
+          
+          <tr>
+            <th>
+              <%= "毛色" %>
+            </th>
+            <td>
+              <%= @job_change_dog.surgery.name %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <%= "性格" %>
+            </th>
+            <td>
+              <%= @job_change_dog.personality %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <%= "去勢・避妊手術" %>
+            </th>
+            <td>
+              <%= @job_change_dog.surgery.name %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <%= "ワクチン接種" %>
+            </th>
+            <td>
+              <%= @job_change_dog.vaccine.name %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <%= "その他" %>
+            </th>
+            <td>
+              <%= @job_change_dog.word %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <%= "掲載日" %>
+            </th>
+            <td>
+              <%= @job_change_dog.publication %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <%= "その他" %>
+            </th>
+            <td>
+              <%= @job_change_dog.word %>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
       <div class="prototype__comments">
         <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
           <%# <%= form_with model: モデル名,local: true do |f|%>
