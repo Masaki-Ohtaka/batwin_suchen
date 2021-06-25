@@ -20,6 +20,17 @@
 
               <tr>
                 <th>
+                  <%= f.label :age, "年齢" %>
+                  <b>※</b>
+                </th>
+                <td>
+                  <%= f.text_field :age %>
+                  <br>
+                </td>
+              </tr>
+
+              <tr>
+                <th>
                   <%= f.label :breed_id, "犬の種類" %>
                   <b>※</b>
                 </th>
@@ -28,7 +39,7 @@
                   <br>
                 </td>
               </tr>
-
+              
               <tr>
                 <th>
                   <%= f.label :far_color, "毛色" %>

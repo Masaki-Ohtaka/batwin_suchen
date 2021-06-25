@@ -259,9 +259,42 @@ tr { /*サンプル*/
 }
 
 /* 詳細ページ */
-.prototype__wrapper{
+.prototype__wrapper { /*サンプル*/
   min-height: calc(100vh - 161px);
+  padding: 1.4em;
+  padding-top: 2em;
+  margin: 2em 0;
+  margin-bottom: 1.4rem;
+  border-radius: 5px;
+  background: #f6f0e9;
 }
+
+ 
+
+.prototype__wrapper th {/*サンプル*/
+  padding: 8px;
+  background: #f1f1f1;
+  border: 1px solid #dbdbdb;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.prototype__wrapper td {/*サンプル*/
+  padding: 13px!important;
+  text-indent: 0!important;
+  line-height: 100%;
+  vertical-align: middle;
+}
+
+.prototype__wrapper table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* .item-list {
+  margin: 0 auto;
+  padding: 16px 0;
+} */
 .prototype__hedding{
   font-size: 24px;
   font-weight: bold;
@@ -341,6 +374,8 @@ tr { /*サンプル*/
   margin-bottom: 32px;
   width: 50%;
 }
+
+
 .table__col1{
   text-align: left;
   font-weight: bold;

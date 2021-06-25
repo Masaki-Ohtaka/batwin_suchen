@@ -2,6 +2,7 @@ class CreateJobChangeDogs < ActiveRecord::Migration[6.0]
   def change
     create_table :job_change_dogs do |t|
       t.string     :name,        null: false
+      t.string     :age,         null: false
       t.integer    :breed_id,    null: false
       t.string     :far_color,   null: false
       t.integer    :gender_id,   null: false

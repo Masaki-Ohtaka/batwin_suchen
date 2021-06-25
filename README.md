@@ -1,4 +1,4 @@
-       # テーブル設計
+# テーブル設計
 
 ## users テーブル
 
@@ -48,6 +48,7 @@
 | Column      | Type        | Options                       |
 | ----------- | ----------- | ----------------------------- |
 | name        | string      | null: false                   |
+| age         | string      | null: false                   |
 | breed_id    | integer     | null: false                   |
 | far_color   | string      | null: false                   |
 | gender_id   | integer     | null: false                   |

@@ -11,6 +11,7 @@ class JobChangeDog < ApplicationRecord
 
   with_options presence: true do #プルダウン表記の_idについてリファクタリング出来るのでは？
     validates :name
+    validates :age,format: { with: /\A\d{1,2}\z/, message: 'が認識できません. 半角数字で入力してください' }
     validates :breed_id, numericality: { other_than:0,message: "を選択してください"}
     validates :far_color
     validates :gender_id

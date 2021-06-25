@@ -29,6 +29,7 @@ ja:
 
       job_change_dog:
         name: 名前
+        age: 年齢
         breed_id: 犬の種類
         far_color: 毛色
         personality: 性格
