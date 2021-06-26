@@ -34,7 +34,7 @@ class JobChangeDogsController < ApplicationController
     @job_change_dog = JobChangeDog.find(params[:id])
     @job_change_dog.update(job_change_dog_params)
     if @job_change_dog.save
-       redirect_to foundation_job_change_dog_path
+       redirect_to job_change_dog_path
     else
        render :edit
     end
