@@ -11,7 +11,7 @@
         <% if foundation_signed_in? && current_foundation.id == @job_change_dog.foundation_id %>
           <div class="prototype__manage">
             <%= link_to "編集する", edit_job_change_dog_path, class: :prototype__btn %>
-            <%= link_to "削除する", root_path, class: :prototype__btn %>
+            <%= link_to "削除する", job_change_dog_path(@job_change_dog.id), method: :delete, class: :prototype__btn %>
           </div>
         <% end %>
         <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
@@ -45,7 +45,7 @@
               <%= "毛色" %>
             </th>
             <td>
-              <%= @job_change_dog.surgery.name %>
+              <%= @job_change_dog.far_color %>
             </td>
           </tr>
 
@@ -73,15 +73,6 @@
             </th>
             <td>
               <%= @job_change_dog.vaccine.name %>
-            </td>
-          </tr>
-
-          <tr>
-            <th>
-              <%= "その他" %>
-            </th>
-            <td>
-              <%= @job_change_dog.word %>
             </td>
           </tr>
 
