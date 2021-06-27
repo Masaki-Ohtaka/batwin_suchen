@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   scope :foundations do
-    resources :job_change_dogs
+    resources :job_change_dogs do
+      resources :comments, only: :create
+    end
   end
   devise_for :foundations, controllers:{
     sessions:      'foundations/sessions',
