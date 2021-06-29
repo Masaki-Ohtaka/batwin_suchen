@@ -6,6 +6,7 @@ class JobChangeDog < ApplicationRecord
   belongs_to :breed
 
   belongs_to :foundation
+  has_many :comments
   has_many :dogs, dependent: :destroy
   accepts_attachments_for :dogs, attachment: :image
 
@@ -19,6 +20,13 @@ class JobChangeDog < ApplicationRecord
     validates :surgery_id, numericality: { other_than:0,message: "を選択してください"}
     validates :vaccine_id, numericality: { other_than:0,message: "を選択してください"}
     validates :publication
+  end
+
+  private
+  def image_length
+    if images.length != 4
+      errors.add(:images, “must exist 4”)
+    end
   end
 
 end

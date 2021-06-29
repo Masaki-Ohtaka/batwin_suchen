@@ -1,6 +1,12 @@
 <div class="card">
+  <%if job_change_dog.dogs.present?%>
   <% job_change_dog.dogs.first(1).each do |image| %> 
+  
    <%= link_to attachment_image_tag(image, :image, size: '200x200'), job_change_dog_path(job_change_dog.id) %>
+   <% end %>
+  <%else%>
+    <%= image_tag 'logo.png'%>
+  
   <% end %> 
   <div class="card__body">
     <%= link_to "#{job_change_dog.name}", job_change_dog_path(job_change_dog.id), class: :card__title%>
