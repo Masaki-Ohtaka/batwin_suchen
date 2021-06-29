@@ -20,12 +20,13 @@ class JobChangeDog < ApplicationRecord
     validates :surgery_id, numericality: { other_than:0,message: "を選択してください"}
     validates :vaccine_id, numericality: { other_than:0,message: "を選択してください"}
     validates :publication
+    validates :image_length
   end
 
   private
   def image_length
-    if images.length != 4
-      errors.add(:images, “must exist 4”)
+    if dogs_images.length > 4
+      errors.add(:image_id, 'は4枚以内にしてください')
     end
   end
 
