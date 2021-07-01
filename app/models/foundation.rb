@@ -5,6 +5,7 @@ class Foundation < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :job_change_dogs,dependent: :destroy
+  has_many :comments,dependent: :destroy
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数混合入力です', on: :create

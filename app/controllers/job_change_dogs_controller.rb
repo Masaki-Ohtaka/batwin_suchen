@@ -1,6 +1,6 @@
 class JobChangeDogsController < ApplicationController
-  before_action :set_job_change_dog, only: [:edit, :show]
-  # before_action :authenticate_fondation!, only: [:new, :edit, :update, :destroy]
+  before_action :set_job_change_dog, only: [:edit, :update,:show]
+  before_action :authenticate_foundation!, only: [:new, :edit, :update, :destroy]
   def index
     @job_change_dogs = JobChangeDog.includes(:foundation)
     
@@ -31,7 +31,6 @@ class JobChangeDogsController < ApplicationController
   end
 
   def update
-    @job_change_dog = JobChangeDog.find(params[:id])
     @job_change_dog.update(job_change_dog_params)
     if @job_change_dog.save
        redirect_to job_change_dog_path
@@ -41,7 +40,10 @@ class JobChangeDogsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @job_change_dog.comments.includes(:foundation,:user)
   end
+
   private
    def job_change_dog_params
   #   params.require(:job_change_dog).permit(:name, :gender_id, :personality, :word, :image).merge(foundation_id: current_foundation.id)
