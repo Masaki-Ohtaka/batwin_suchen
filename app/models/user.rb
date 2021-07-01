@@ -36,9 +36,4 @@ class User < ApplicationRecord
     end
     update(params)
   end
-
-  
-  
-  has_many :prototypes
-  #has_many :comments
 end
