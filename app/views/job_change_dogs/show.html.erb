@@ -112,7 +112,7 @@
         <% end %>
         <%# <% end %>
         <%# // ログインしているユーザーには上記を表示する %>
-        <ul class="comments_lists">
+        <div class="comments_lists" id='messages'>
           <%# 投稿に紐づくコメントを一覧する処理を記述する %>
           <% @comments.each do |comment| %>
             <li class="comments_list">  
@@ -125,7 +125,7 @@
             </li>
           <% end%>
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
-        </ul>
+        </div>
       </div>
     </div>
   </div>

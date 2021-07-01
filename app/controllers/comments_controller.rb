@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
     end
 
   if @comment.save 
-    redirect_to job_change_dog_path(@comment.job_change_dog_id)
+    ActionCable.server.broadcast 'message_channel', content: @comment
+    # redirect_to job_change_dog_path(@comment.job_change_dog_id)
   else
     @job_change_dog = @comment.job_change_dog
     @comments = @job_change_dog.comments
