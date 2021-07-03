@@ -57,7 +57,7 @@
 | vaccine_id  | integer     | null: false                   |
 | publication | date        | null: false                   |
 | word        | text        | null: false                   |
-| word        | text        | null: false                   |
+| price       | integer     | null: false                   |
 | foundation  | references  | null: false, foreign_key:true |
 
 ### Association
@@ -69,10 +69,10 @@
 
 ## dogs テーブル
 
-| Column         | Type        | Options                       |
-| -------------- | ----------- | ----------------------------- |
-| image_id       | string      | null: false                   |
-| job_change_dog | references  | null: false, foreign_key:true |
+| Column         | Type        | Options                        |
+| -------------- | ----------- | ------------------------------ |
+| image_id       | string      | null: false                    |
+| job_change_dog | references  | null: false, foreign_key: true |
 
 ### Association
 
@@ -80,13 +80,30 @@
 
 ## comments テーブル
 
-| Column      | Type       |  Options                       |
-| -------     | ---------- | ------------------------------ |
-| text        | string     | null: false,                   |
-| user        | references | null: false, foreign_key: true |
-| prototype   | references | null: false, foreign_key: true |
+| Column         | Type       |  Options           |
+| ---------------| ---------- | ------------------ |
+| text           | string     | null: false,       |
+| user           | references | foreign_key: true  |
+| foundation     | references | foreign_key: true  |
+| job_change_dog | references | foreign_key: true  |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :prototype
+- belongs_to :foundation
+- belongs_to :job_change_dog
+
+## supports テーブル
+
+| Column          | Type        | Options                        |
+| --------------  | ----------  | ------------------------------ |
+| user            | references  | null: false, foreign_key: true |
+<!-- | foundation      | references  | null: false, foreign_key: true | -->
+| job_change_dog  | references  | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :user
+<!-- - belongs-to :foundation -->
+- belongs_to :job_change_dog

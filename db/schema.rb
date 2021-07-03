@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_122925) do
+ActiveRecord::Schema.define(version: 2021_07_03_093212) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -83,10 +83,20 @@ ActiveRecord::Schema.define(version: 2021_06_26_122925) do
     t.integer "vaccine_id", null: false
     t.date "publication", null: false
     t.text "word", null: false
+    t.integer "price", null: false
     t.bigint "foundation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["foundation_id"], name: "index_job_change_dogs_on_foundation_id"
+  end
+
+  create_table "supports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "job_change_dog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_change_dog_id"], name: "index_supports_on_job_change_dog_id"
+    t.index ["user_id"], name: "index_supports_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -121,4 +131,6 @@ ActiveRecord::Schema.define(version: 2021_06_26_122925) do
   add_foreign_key "comments", "users"
   add_foreign_key "dogs", "job_change_dogs"
   add_foreign_key "job_change_dogs", "foundations"
+  add_foreign_key "supports", "job_change_dogs"
+  add_foreign_key "supports", "users"
 end

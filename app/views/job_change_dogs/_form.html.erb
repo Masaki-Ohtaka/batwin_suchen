@@ -109,7 +109,7 @@
                         id:"birth-date",
                         use_month_numbers: true,
                         prompt:'--',
-                        start_year: 1930,
+                        start_year: 2020,
                         end_year: (Time.now.year),
                         date_separator: '%s'),
                       "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
@@ -124,6 +124,17 @@
                 </th>
                 <td>
                   <%= f.text_field :word %>
+                  <br>
+                </td>
+              </tr>
+
+              <tr>
+                <th>
+                  <%= f.label :price, "希望支援額" %>
+                  <b>※</b>
+                </th>
+                <td>
+                  <%= f.text_field :price %>
                   <br>
                 </td>
               </tr> 

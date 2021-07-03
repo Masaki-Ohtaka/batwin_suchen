@@ -20,6 +20,8 @@ class JobChangeDog < ApplicationRecord
     validates :surgery_id, numericality: { other_than:0,message: "を選択してください"}
     validates :vaccine_id, numericality: { other_than:0,message: "を選択してください"}
     validates :publication
+    validates :word
+    validates :price
   end
   validate :image_length
 

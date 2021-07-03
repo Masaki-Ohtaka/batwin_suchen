@@ -1,5 +1,9 @@
 class Gender < ActiveHash::Base
-  self.data =[none: 0, woman: 1, man: 2 ]
+  self.data =[
+    { id: 0, name: '--' }, 
+    { id: 1, name: '♂' },
+    { id: 2, name: '♀' },
+  ]
 
   include ActiveHash::Associations
   has_many :users

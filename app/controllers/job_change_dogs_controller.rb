@@ -47,7 +47,7 @@ class JobChangeDogsController < ApplicationController
   private
    def job_change_dog_params
   #   params.require(:job_change_dog).permit(:name, :gender_id, :personality, :word, :image).merge(foundation_id: current_foundation.id)
-    params.require(:job_change_dog).permit(:name, :age, :breed_id, :far_color,:gender_id, :personality, :surgery_id, :vaccine_id, :publication, :word, dogs_images:[]).merge(foundation_id: current_foundation.id)
+    params.require(:job_change_dog).permit(:name, :age, :breed_id, :far_color,:gender_id, :personality, :surgery_id, :vaccine_id, :publication, :word, :price,dogs_images:[]).merge(foundation_id: current_foundation.id)
     
    end
 

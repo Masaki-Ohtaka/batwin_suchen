@@ -9,10 +9,14 @@
   
   <% end %> 
   <div class="card__body">
-    <%= link_to "#{job_change_dog.name}", job_change_dog_path(job_change_dog.id), class: :card__title%>
+    <% if job_change_dog.gender_id == 1%>
+      <%= link_to "#{job_change_dog.name}くん", job_change_dog_path(job_change_dog.id), class: :card__title%>
+    <% else %>
+      <%= link_to "#{job_change_dog.name}ちゃん", job_change_dog_path(job_change_dog.id), class: :card__title%>
+    <% end %>
     <p class="card__summary">
-      <%= job_change_dog.word %>
+      <%= job_change_dog.gender.name %>
     </p>
-    <%= link_to "by プロトタイプの投稿者名", root_path, class: :card__user %>
+    <%# <%= link_to "by プロトタイプの投稿者名", root_path, class: :card__user %>
   </div>
 </div>
