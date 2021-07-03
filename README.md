@@ -57,6 +57,7 @@
 | vaccine_id  | integer     | null: false                   |
 | publication | date        | null: false                   |
 | word        | text        | null: false                   |
+| word        | text        | null: false                   |
 | foundation  | references  | null: false, foreign_key:true |
 
 ### Association
