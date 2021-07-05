@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
   resources :job_change_dogs do
     resources :comments, only: :create
+    resources :supports, only: [:index, :create]
   end
 
   root to: "job_change_dogs#index"

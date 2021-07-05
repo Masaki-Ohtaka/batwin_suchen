@@ -6,8 +6,9 @@ class JobChangeDog < ApplicationRecord
   belongs_to :breed
 
   belongs_to :foundation
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :dogs, dependent: :destroy
+  has_one  :support
   accepts_attachments_for :dogs, attachment: :image
 
   with_options presence: true do #プルダウン表記の_idについてリファクタリング出来るのでは？

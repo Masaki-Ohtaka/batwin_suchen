@@ -9,7 +9,12 @@ class CommentsController < ApplicationController
     end
 
   if @comment.save 
-    ActionCable.server.broadcast 'message_channel', content: @comment
+    if @comment.user_id.present? 
+      comment = { text: @comment.text ,user_name: @comment.user.nickname }
+    else
+      comment = { text: @comment.text ,user_name: @comment.foundation.facility_name }
+    end
+      ActionCable.server.broadcast 'message_channel', content: comment
     # redirect_to job_change_dog_path(@comment.job_change_dog_id)
   else
     @job_change_dog = @comment.job_change_dog
