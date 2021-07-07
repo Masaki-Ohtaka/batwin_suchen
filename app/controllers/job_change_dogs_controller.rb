@@ -41,7 +41,7 @@ class JobChangeDogsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @job_change_dog.comments.includes(:foundation,:user)
+    @comments = @job_change_dog.comments.includes(:foundation,:user).order("created_at DESC")
   end
 
   private

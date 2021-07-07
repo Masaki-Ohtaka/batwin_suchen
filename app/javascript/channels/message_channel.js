@@ -10,7 +10,7 @@ consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
-    console.log(data);
+    // console.log(data);
     const html = `<li class="comments_list">${data.content.text}<a class="comment_user" href="/">（${data.content.user_name} ）</a></li>`;
     const messages = document.getElementById('messages');
     const newMessage = document.getElementById('comment_text');

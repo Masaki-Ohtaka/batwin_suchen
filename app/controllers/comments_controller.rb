@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
   if @comment.save 
     if @comment.user_id.present? 
-      comment = { text: @comment.text ,user_name: @comment.user.nickname }
+      comment = { text: @comment.text ,user_name: @comment.user.nickname } #comment変数にtextコメントの内容,ユーザの名前を格納
     else
       comment = { text: @comment.text ,user_name: @comment.foundation.facility_name }
     end
@@ -27,4 +27,5 @@ end
   def comment_params
     params.require(:comment).permit(:text, :job_change_dog_id)#.merge(foundation_id: current_foundation.id, job_change_dog_id: params[:job_change_dog_id])
   end
+  
 end
