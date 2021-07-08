@@ -1,14 +1,14 @@
 class SupportsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   before_action :set_job_change_dog, only: [:index, :create]
-  
+  before_action :support_completed, only: [:index, :create]
   
   def index
     @support = Support.new  
   end
 
   def create
-    @support = Support.new(user_id: current_user.id, job_change_dog_id: params[:job_change_dog_id])
+    @support = Support.new(user_id: current_user.id, job_change_dog_id: params[:job_change_dog_id])#必ずしもストロングパラメーターを使ってデータを格納するわけではない
     
     
     if @support.valid?
@@ -21,9 +21,6 @@ class SupportsController < ApplicationController
   end
 
   private
-  def support_params
-    params.require(:support).permit(:job_change_dog_id,user_id: current_user.id, ).merge(token: params[:token])
-  end
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
@@ -34,5 +31,10 @@ class SupportsController < ApplicationController
   end
   def set_job_change_dog
     @job_change_dog = JobChangeDog.find(params[:job_change_dog_id])
+  end
+  def support_completed
+    if @job_change_dog.support.present?
+      redirect_to root_path
+    end
   end
 end

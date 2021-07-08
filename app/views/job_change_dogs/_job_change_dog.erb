@@ -1,13 +1,19 @@
 <div class="card">
-  <%if job_change_dog.dogs.present?%>
+  <%# <%if job_change_dog.dogs.present?%>
   <% job_change_dog.dogs.first(1).each do |image| %> 
-  
-   <%= link_to attachment_image_tag(image, :image, size: '200x200'), job_change_dog_path(job_change_dog.id) %>
-   <% end %>
-  <%else%>
-    <%= image_tag 'logo.png'%>
-  
+    <div class='item-img-content'> 
+      <%= link_to attachment_image_tag(image, :image, size: '200x200'), job_change_dog_path(job_change_dog.id) %>
+    <% if job_change_dog.support.present? %>
+      <div class='sold-out'>
+        <span>Sold Out!!</span>
+      </div>
+    <% end %> 
+    </div>
   <% end %> 
+  <%# <%else%> 
+    <%# <%= image_tag 'logo.png'%>
+  
+  <%# <% end %>
   <div class="card__body">
     <% if job_change_dog.gender_id == 1%>
       <%= link_to "#{job_change_dog.name}くん", job_change_dog_path(job_change_dog.id), class: :card__title%>
