@@ -12,8 +12,9 @@
           <%= link_to "#{current_foundation.facility_name}", root_path, class: :greeting__link%>
       </div>
     <% end %>
+    <h1>自慢の支援対象なワン子達!~一家の癒しにどうですか？♪~</h1> 
     <%# // ログインしているときは上記を表示する %>
-    <div class="card__wrapper">
+    <div class="card__wrapper">    
       <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
       <%= render partial: "job_change_dog", collection: @job_change_dogs%>
     </div>

@@ -7,14 +7,27 @@
           <%= @job_change_dog.name%>
         </p>
         <%= link_to "#{@job_change_dog.foundation.facility_name}", root_path, class: :prototype__user %>
-        <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
-        <% if foundation_signed_in? && current_foundation.id == @job_change_dog.foundation_id %>
-          <div class="prototype__manage">
-            <%= link_to "編集する", edit_job_change_dog_path(@job_change_dog.id), class: :prototype__btn %>
-            <%= link_to "削除する", job_change_dog_path(@job_change_dog.id), method: :delete, class: :prototype__btn %>
-          </div>
+
+      <%# 犬の情報・支援情報についてのページ遷移ボタン%>  
+        <%# 犬が支援されていない場合%>
+        <% if @job_change_dog.support == nil%>
+        <%# 施設者がログイン状態かつ、その施設者が登録した犬の情報だった場合（編集・削除）ボタンを表示させる %>
+          <% if foundation_signed_in? && current_foundation.id == @job_change_dog.foundation_id%>
+            <div class="prototype__manage">
+              <%= link_to "編集する", edit_job_change_dog_path(@job_change_dog.id), class: :prototype__btn %>
+              <%= link_to "削除する", job_change_dog_path(@job_change_dog.id), method: :delete, class: :prototype__btn %>
+            </div>
+        
+          <% elsif user_signed_in?%>
+            <div class="prototype__manage">
+              <%= link_to "購入する", job_change_dog_supports_path(@job_change_dog.id), class: :prototype__btn %>
+            </div>
+          <% end %>
         <% end %>
-        <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <%# 上記、犬の情報・支援情報についてのページ遷移ボタン%> 
+
+
+
         <div class="prototype__image">
           <% @job_change_dog.dogs.first(1).each do |image| %> 
               <%= attachment_image_tag image, :image %> 

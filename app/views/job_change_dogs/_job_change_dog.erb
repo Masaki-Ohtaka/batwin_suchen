@@ -1,18 +1,56 @@
 <div class="card">
-  <%if job_change_dog.dogs.present?%>
+  <h3>掲載日　<%= job_change_dog.publication%> </h3>
+  <%# <%if job_change_dog.dogs.present?%>
   <% job_change_dog.dogs.first(1).each do |image| %> 
-  
-   <%= link_to attachment_image_tag(image, :image, size: '200x200'), job_change_dog_path(job_change_dog.id) %>
-   <% end %>
-  <%else%>
-    <%= image_tag 'logo.png'%>
-  
+    <div class='item-img-content'> 
+      <%= link_to attachment_image_tag(image, :image,class: "item-img"), job_change_dog_path(job_change_dog.id,class: "item-img") %>
+    <% if job_change_dog.support.present? %>
+      <div class='sold-out'>
+        <span>Sold Out!!</span>
+      </div>
+    <% end %> 
+    </div>
   <% end %> 
+  <%# <%else%> 
+    <%# <%= image_tag 'logo.png'%>
+  
+  <%# <% end %>
   <div class="card__body">
-    <%= link_to "#{job_change_dog.name}", job_change_dog_path(job_change_dog.id), class: :card__title%>
-    <p class="card__summary">
-      <%= job_change_dog.word %>
-    </p>
-    <%= link_to "by プロトタイプの投稿者名", root_path, class: :card__user %>
+    <ul>
+      <li>
+        <% if job_change_dog.gender_id == 1%>
+          <%= link_to "#{job_change_dog.name}くん", job_change_dog_path(job_change_dog.id), class: :card__title%>
+      </li>
+      <li>
+        <div class="card__summary pull-right male"><%# <div>要素に変更するかも %>
+          <%= "#{job_change_dog.gender.name} 男子✨"%>
+        </div>
+        <div class="mt5"><%= "#{job_change_dog.age} 歳(#{job_change_dog.breed.name})"%></div>
+      </li>
+      <li>
+        <% else %>
+          <%= link_to "#{job_change_dog.name}ちゃん", job_change_dog_path(job_change_dog.id), class: :card__title%>
+      </li>
+      <li>
+        <div class="card__summary pull-right female">
+          <%= "#{job_change_dog.gender.name} 女子💗"%>
+        </div>
+          <div class="mt5"><%= "#{job_change_dog.age} 歳(#{job_change_dog.breed.name})"%></div>
+        <% end %>
+      </li>
+    </ul>
+    <table class="mt5 mb0">
+      <tbody>
+        <tr>
+          <td class="txt_c label-pink-bg p3 border-bottom-3--white" style="width: 60px;">施設者</td>
+          <td class="p15"><%= job_change_dog.foundation.facility_name%></td>
+        </tr>
+      </tbody>
+    <%# <%= link_to "by プロトタイプの投稿者名", root_path, class: :card__user %>
+    </table>
+    <p><%= job_change_dog.word%></p>
+    <div class="mt5 orange fs 14 bold">
+      <%= "希望支援#{job_change_dog.price}円"%>
+    </div>
   </div>
 </div>

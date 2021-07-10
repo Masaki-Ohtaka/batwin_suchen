@@ -9,6 +9,7 @@ class User < ApplicationRecord
   belongs_to :gender
 
   has_many :comments,dependent: :destroy
+  has_one :support, dependent: :destroy
   # enum gender: { man: 0, woman: 1}
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数混合入力です', on: :create
@@ -36,9 +37,4 @@ class User < ApplicationRecord
     end
     update(params)
   end
-
-  
-  
-  has_many :prototypes
-  #has_many :comments
 end

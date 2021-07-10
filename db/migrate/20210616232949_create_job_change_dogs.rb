@@ -11,6 +11,7 @@ class CreateJobChangeDogs < ActiveRecord::Migration[6.0]
       t.integer    :vaccine_id,  null: false
       t.date       :publication, null: false
       t.text       :word,        null: false
+      t.integer    :price,       null: false
       t.references :foundation, foreign_key: true
       t.timestamps
     end

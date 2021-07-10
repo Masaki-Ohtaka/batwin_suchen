@@ -6,8 +6,9 @@ class JobChangeDog < ApplicationRecord
   belongs_to :breed
 
   belongs_to :foundation
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :dogs, dependent: :destroy
+  has_one  :support
   accepts_attachments_for :dogs, attachment: :image
 
   with_options presence: true do #プルダウン表記の_idについてリファクタリング出来るのでは？
@@ -20,8 +21,10 @@ class JobChangeDog < ApplicationRecord
     validates :surgery_id, numericality: { other_than:0,message: "を選択してください"}
     validates :vaccine_id, numericality: { other_than:0,message: "を選択してください"}
     validates :publication
-    validates :image_length
+    validates :word
+    validates :price
   end
+  validate :image_length
 
   private
   def image_length
