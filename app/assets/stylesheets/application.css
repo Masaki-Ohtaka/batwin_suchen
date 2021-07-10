@@ -37,7 +37,8 @@ a {
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
+  /* background-color: #f1f8fe; */
+  background-color: #e7a478e1;
   margin-bottom: 48px;
   padding: 20px 0;
 
@@ -59,16 +60,16 @@ a {
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #050505;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #050505 solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
   color: #fff;
-  background: #87CEFA;
+  background: #050505;
 }
 
 
@@ -215,6 +216,61 @@ tr { /*サンプル*/
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
   cursor: pointer;
 }
+/* トップページ */
+.inner h1 {
+  font-size: 23px;
+  font-weight: bold; /* 文字の太さ */
+  color: #494821;
+  line-height: 48px;
+  background: url();/* backgroundの指定の仕方に？？？*/
+  text-indent: 50px;
+  padding-top: 4px;
+  margin-bottom: 22px;
+  text-align: center;/* inner要素内に対して中央へ*/
+}
+
+
+.male {
+  color: #3498db !important; /* 男*/
+}
+.female {
+  color: #ec5268 !important;/*  女 */
+}
+
+.pull-right {
+  float: right !important;  
+}
+
+.item-img {
+  width: 50vh;
+  height: 33vh;
+}
+
+.orange {
+  color: #e67e22 !important;
+}
+
+/* .border-bottom-3--white {
+  border-bottom: 3px solid white !important;
+} */
+.label-pink-bg {
+  background: #fbbb98 !important;
+  color: #292321 !important;
+}
+.p3 {
+  padding: 3px !important;
+}
+.txt_c {
+  text-align: center !important;
+}
+table td {
+  word-break: break-all;
+}
+.pl5 {
+  padding-left: 5px !important;
+}
+
+
 
 /* メイン */
 
@@ -236,7 +292,9 @@ tr { /*サンプル*/
   min-height: calc(100vh - 161px);
 }
 .card {
-  width: calc((100% - 50px) / 3);
+   width: calc((100% - 50px) / 3); 
+  /* width: 37vh; */
+  padding: 1vw;
   margin-bottom: 40px;
 }
 .card__img {
@@ -251,6 +309,9 @@ tr { /*サンプル*/
 .card__summary {
   font-size: 16px;
 }
+
+
+
 .card__user {
   display: block;
   font-size: 12px;
@@ -607,8 +668,9 @@ small {
   .page-heading {
     font-size: 20px;
   }
+  
   .card {
-    width: 100%;
+    width: 100%; /*50*/
     margin-bottom: 60px;
   }
   .card__title {
@@ -628,18 +690,18 @@ small {
 .sold-out {
   position: absolute;
   top: 40%;
-  width: 100%;
+  /* width: 100%;  /* 現状このせいで見た目が悪い */
   text-align: center;
   background-color: crimson;
   transform: skewY(-10deg);
 }
-
+/*支援完了*/
 .sold-out > span {
   color: #FFF;
   font-size: 45px;
   font: bold;
 }
-
 .item-img-content {
   position: relative;
+  
 }

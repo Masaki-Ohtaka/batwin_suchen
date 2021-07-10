@@ -8,8 +8,7 @@ class SupportsController < ApplicationController
   end
 
   def create
-    @support = Support.new(user_id: current_user.id, job_change_dog_id: params[:job_change_dog_id])#必ずしもストロングパラメーターを使ってデータを格納するわけではない
-    
+    @support = Support.new(user_id: current_user.id, job_change_dog_id: params[:job_change_dog_id],token: params[:token])#必ずしもストロングパラメーターを使ってデータを格納するわけではない   
     
     if @support.valid?
       pay_item
