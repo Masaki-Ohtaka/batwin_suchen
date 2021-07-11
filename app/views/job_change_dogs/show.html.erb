@@ -28,12 +28,16 @@
 
 
 
-        <div class="prototype__image">
-          <% @job_change_dog.dogs.first(1).each do |image| %> 
-              <%= attachment_image_tag image, :image %> 
-          <% end %>
-          <%# <% if item.purchase.present? %> 
+        <%# <div class="prototype__image"> %>
+        <div class="previews">
+          <div class="slider">
+            <% @job_change_dog.dogs.first(4).each do |image| %> 
+                <%= attachment_image_tag image, :image %> 
+            <% end %>
+          </div>
         </div>
+          <%# <% if item.purchase.present? %> 
+        <%# </div> %>
         <tbody>
          <tr>
           <th>

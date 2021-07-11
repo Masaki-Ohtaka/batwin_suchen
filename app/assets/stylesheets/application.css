@@ -369,11 +369,11 @@ table td {
   text-align: center;
   text-decoration: underline;
 }
-.prototype__image{
+/* .prototype__image{
   width: 40%;
   margin: 0 auto;
   padding: 16px 0;
-}
+} */
 .prototype__detail{
   display: flex;
   align-items: center;
