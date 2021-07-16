@@ -99,7 +99,7 @@
               </tr>
 
               <tr>
-                <th>掲載日 <b>※</b></th>
+                <th>希望譲渡期限 <b>※</b></th>
                 <td>
                   <div class="input-birth-wrap">
                     <%= raw sprintf(
@@ -109,8 +109,8 @@
                         id:"birth-date",
                         use_month_numbers: true,
                         prompt:'--',
-                        start_year: 2020,
-                        end_year: (Time.now.year),
+                        start_year: (Time.now.year),
+                        end_year: (Time.now.year) + 1,
                         date_separator: '%s'),
                       "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
                   </div>

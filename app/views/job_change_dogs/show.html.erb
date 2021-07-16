@@ -32,12 +32,12 @@
         <div class="previews">
           <div class="slider">
             <% @job_change_dog.dogs.first(4).each do |image| %> 
-                <%= attachment_image_tag image, :image %> 
+                <%= attachment_image_tag image, :image%> 
             <% end %>
           </div>
         </div>
           <%# <% if item.purchase.present? %> 
-        <%# </div> %>
+        </div>
         <tbody>
          <tr>
           <th>
@@ -95,10 +95,10 @@
 
           <tr>
             <th>
-              <%= "掲載日" %>
+              <%= "希望譲渡期限" %>
             </th>
             <td>
-              <%= @job_change_dog.publication %>
+              <%= "#{@job_change_dog.publication}　まで" %>
             </td>
           </tr>
 
