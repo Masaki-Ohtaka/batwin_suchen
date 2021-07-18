@@ -2,7 +2,7 @@
 <div class='transaction-contents'>
   <div class='transaction-main'>
     <h1 class='transaction-title-text'>
-      購入内容の確認
+      内容の確認
     </h1>
     <%# 購入内容の表示 %>
     <% @job_change_dog.dogs.first(1).each do |image| %> 
@@ -78,7 +78,7 @@
     <%# /カード情報の入力 %>
 
         <div class='buy-btn'>
-      <%= f.submit "購入" ,class:"buy-red-btn" %>
+      <%= f.submit "確定" ,class:"buy-red-btn" %>
     </div>
     <% end %>
   </div>

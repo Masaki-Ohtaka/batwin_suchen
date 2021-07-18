@@ -1,12 +1,14 @@
 <main class="main">
   <div class="inner">
     <div class="prototype__wrapper">
-      <table border="0" cellpadding="0" cellspacing="0">
+      <table>
        
         <p class="prototype__hedding">
           <%= @job_change_dog.name%>
         </p>
-        <%= link_to "#{@job_change_dog.foundation.facility_name}", root_path, class: :prototype__user %>
+        <p class="prototype__user">
+          <%=@job_change_dog.foundation.facility_name%>
+        </p>
 
       <%# 犬の情報・支援情報についてのページ遷移ボタン%>  
         <%# 犬が支援されていない場合%>
@@ -20,7 +22,7 @@
         
           <% elsif user_signed_in?%>
             <div class="prototype__manage">
-              <%= link_to "購入する", job_change_dog_supports_path(@job_change_dog.id), class: :prototype__btn %>
+              <%= link_to "支援する", job_change_dog_supports_path(@job_change_dog.id), class: :prototype__btn %>
             </div>
           <% end %>
         <% end %>
@@ -28,10 +30,14 @@
 
 
 
-        <div class="prototype__image">
-          <% @job_change_dog.dogs.first(1).each do |image| %> 
-              <%= attachment_image_tag image, :image %> 
-          <% end %>
+        <%# <div class="prototype__image"> %>
+        <div class="previews">
+          <div class="slider">
+            <% @job_change_dog.dogs.first(4).each do |image| %> 
+                <%= attachment_image_tag image, :image%> 
+            <% end %>
+          </div>
+        </div>
           <%# <% if item.purchase.present? %> 
         </div>
         <tbody>
@@ -91,10 +97,10 @@
 
           <tr>
             <th>
-              <%= "掲載日" %>
+              <%= "希望譲渡期限" %>
             </th>
             <td>
-              <%= @job_change_dog.publication %>
+              <%= "#{@job_change_dog.publication}　まで" %>
             </td>
           </tr>
 

@@ -66,3 +66,4 @@ gem 'refile', require: 'refile/rails', github: 'refile/refile'
 gem 'refile-mini_magick'
 gem 'image_processing'
 gem 'payjp'
+gem "jquery-rails"
