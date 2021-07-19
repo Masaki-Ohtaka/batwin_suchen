@@ -28,6 +28,7 @@ ja:
         phone_number: 電話番号
 
       job_change_dog:
+        dogs_images: 画像
         name: 名前
         age: 年齢
         breed_id: 犬の種類
@@ -35,9 +36,9 @@ ja:
         personality: 性格
         surgery_id: 去勢・避妊手術
         vaccine_id: ワクチン接種
-        publication: 掲載日
-        image_id: 画像
-
+        publication: 希望譲渡
+        price:   支援金
+        
       support:
         token: カード情報
 

@@ -12,8 +12,10 @@ class JobChangeDog < ApplicationRecord
   accepts_attachments_for :dogs, attachment: :image
 
   with_options presence: true do #プルダウン表記の_idについてリファクタリング出来るのでは？
+    validates :dogs_images
     validates :name
-    validates :age,format: { with: /\A\d{1,2}\z/, message: 'が認識できません. 半角数字で入力してください' }
+    #in: 0..29の形形だとActiveModel::RangeError発生
+    validates :age, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 29},format: { with: /\A[0-9]+\z/, message: 'が認識できません. 半角数字で入力してください' }
     validates :breed_id, numericality: { other_than:0,message: "を選択してください"}
     validates :far_color
     validates :gender_id
@@ -22,9 +24,10 @@ class JobChangeDog < ApplicationRecord
     validates :vaccine_id, numericality: { other_than:0,message: "を選択してください"}
     validates :publication
     validates :word
-    validates :price
+    validates :price, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, format: { with: /\A[0-9]+\z/ }
   end
-  validate :image_length
+    
+    validate :image_length
 
   private
   def image_length

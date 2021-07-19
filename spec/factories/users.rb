@@ -8,7 +8,7 @@ FactoryBot.define do
     last_name             { "太郎" }
     first_kana            {"アラシヤマ"}
     last_kana             {"タロウ"}
-    gender_id             { 0 }
+    gender_id             { 1 }
     profile               {"ニート"}
     birthday              {"19301010"}
     postal_code           {"123-4567"}

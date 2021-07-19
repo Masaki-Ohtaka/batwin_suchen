@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :job_change_dog do
+    dogs_images { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/A-test4.jpg'), 'image/jpeg') }
     name        {'テスト'}
     age         {10}
     breed_id    {2}
