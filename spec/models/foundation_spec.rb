@@ -68,8 +68,18 @@ RSpec.describe Foundation, type: :model do
         @foundation.valid?
         expect(@foundation.errors.full_messages).to include("郵便番号が認識できません.半角英数字とハイフン（-）を含めてください")
       end
+      it 'location_idがが空だと登録できないこと' do
+        @foundation.location_id = ''
+        @foundation.valid?
+        expect(@foundation.errors.full_messages).to include("都道府県を入力してください")
+      end
       it 'location_idが「---」を選択している時登録できないこと' do
         @foundation.location_id = 0
+        @foundation.valid?
+        expect(@foundation.errors.full_messages).to include("都道府県を選択してください")
+      end
+      it 'location_idが1~47の該当外を入力している時登録できないこと' do
+        @foundation.location_id = 300
         @foundation.valid?
         expect(@foundation.errors.full_messages).to include("都道府県を選択してください")
       end

@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       @comment = current_foundation.comments.build(comment_params)
       @comment.job_change_dog_id = params[:job_change_dog_id]
     end
-
+    
   if @comment.save 
     if @comment.user_id.present? 
       comment = { text: @comment.text ,user_name: @comment.user.nickname } #comment変数にtextコメントの内容,ユーザの名前を格納

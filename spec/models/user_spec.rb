@@ -53,11 +53,19 @@ RSpec.describe User, type: :model do
         another_user.valid?
         expect(another_user.errors.full_messages).to include("Eメールはすでに存在します")
       end
+
       it 'gender_idが空だと登録できないこと' do
-        @user.gender_id = ''
+         @user.gender_id = ''
+         @user.valid?
+         expect(@user.errors.full_messages).to include("性別を入力してください")
+       end
+
+       it 'gender_idは1,2以外だと登録できないこと' do
+        @user.gender_id = 3
         @user.valid?
-        expect(@user.errors.full_messages).to include("性別を入力してください")
+        expect(@user.errors.full_messages).to include("性別は不正値です。男性か女性を選んで下さい")
       end
+      
       it 'profileが空だと登録できないこと' do
         @user.profile = ''
         @user.valid?
@@ -78,8 +86,18 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("郵便番号が認識できません.半角英数字とハイフン（-）を含めてください")
       end
+      it 'location_idが空だと登録できないこと' do
+        @user.location_id = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("都道府県を入力してください")
+      end
       it 'location_idが「---」を選択している時登録できないこと' do
         @user.location_id = 0
+        @user.valid?
+        expect(@user.errors.full_messages).to include("都道府県を選択してください")
+      end
+      it 'location_idが1~47の該当外を入力している時登録できないこと' do
+        @user.location_id = 300
         @user.valid?
         expect(@user.errors.full_messages).to include("都道府県を選択してください")
       end
