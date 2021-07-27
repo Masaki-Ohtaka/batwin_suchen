@@ -1,6 +1,6 @@
 class Surgery < ActiveHash::Base
   self.data = [
-    { id: 0, name: '--' },
+    { id: 0, name: '---' },
     { id: 1, name: '未' },
     { id: 2, name: '済' }
   ]

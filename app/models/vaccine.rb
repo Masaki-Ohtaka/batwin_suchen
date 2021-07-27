@@ -1,6 +1,6 @@
 class Vaccine < ActiveHash::Base
   self.data = [
-    { id: 0, name: '--' }, 
+    { id: 0, name: '---' }, 
     { id: 1, name: '未' },
     { id: 2, name: 'コアワクチン済' },
     { id: 3, name: 'ノンコアワクチン済' },

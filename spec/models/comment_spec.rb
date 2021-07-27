@@ -24,13 +24,13 @@ RSpec.describe Comment, type: :model do
       @comment = FactoryBot.build(:comment, job_change_dog_id: @job_change_dog.id,user_id: @user.id)
       @comment.text = ''
       @comment.valid?
-      expect(@comment.errors.full_messages).to include("Textを入力してください")
+      expect(@comment.errors.full_messages).to include("内容を入力してください")
     end
     it 'foundationと紐づいている時でtextが空だと登録できないこと' do
       @comment = FactoryBot.build(:comment, job_change_dog_id: @job_change_dog.id,foundation_id: @foundation.id)
       @comment.text = ''
       @comment.valid?
-      expect(@comment.errors.full_messages).to include("Textを入力してください")
+      expect(@comment.errors.full_messages).to include("内容を入力してください")
     end
   end
 end

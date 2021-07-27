@@ -33,11 +33,15 @@ ja:
         age: 年齢
         breed_id: 犬の種類
         far_color: 毛色
+        gender_id: 性別
         personality: 性格
         surgery_id: 去勢・避妊手術
         vaccine_id: ワクチン接種
         publication: 希望譲渡
         price:   支援金
+      
+      comment:
+        text: 内容
         
       support:
         token: カード情報

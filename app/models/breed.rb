@@ -1,6 +1,6 @@
 class Breed < ActiveHash::Base
   self.data = [
-    { id: 0, name: '--' }, 
+    { id: 0, name: '---' }, 
     { id: 1, name: 'ゴールデン・レトリバー' },
     { id: 2, name: 'ラブラドル・レトリバー' },
     { id: 3, name: 'プードル' },
