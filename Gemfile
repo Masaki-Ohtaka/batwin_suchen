@@ -63,7 +63,7 @@ gem 'rails-i18n'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'refile', require: 'refile/rails', github: 'refile/refile'
-gem 'refile-mini_magick'
 gem 'image_processing'
 gem 'payjp'
 gem "jquery-rails"
+gem 'refile-mini_magick'

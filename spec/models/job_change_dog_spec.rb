@@ -73,7 +73,7 @@ RSpec.describe JobChangeDog, type: :model do
       expect(@job_change_dog.errors.full_messages).to include("去勢・避妊手術を選択してください")
     end
     it 'surgery_idが1,2以外を選択している時登録できないこと' do
-      @job_change_dog.surgery_id = 3
+      @job_change_dog.surgery_id = 10
       @job_change_dog.valid?
       expect(@job_change_dog.errors.full_messages).to include("去勢・避妊手術を選択してください")
     end
