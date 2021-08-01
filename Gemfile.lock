@@ -1,4 +1,21 @@
 GIT
+  remote: https://github.com/refile/refile-mini_magick.git
+  revision: 5c7c30d57a94c4104d84eb4eb9e74ca757c1a773
+  specs:
+    refile-mini_magick (0.2.0)
+      image_processing (~> 1.1)
+      mini_magick (~> 4.0)
+      refile (~> 0.6)
+
+GIT
+  remote: https://github.com/refile/refile-s3.git
+  revision: 765b51ded93b96cf7e7cad2353c5bc591507dbe3
+  specs:
+    refile-s3 (0.2.0)
+      aws-sdk-s3 (~> 1.23)
+      refile (~> 0.7.0)
+
+GIT
   remote: https://github.com/refile/refile.git
   revision: c4ac577c6fdad92bc079a62a0e82888319daedc8
   specs:
@@ -68,6 +85,22 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    aws-eventstream (1.1.1)
+    aws-partitions (1.480.0)
+    aws-sdk-core (3.118.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.239.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.45.0)
+      aws-sdk-core (~> 3, >= 3.118.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.97.0)
+      aws-sdk-core (~> 3, >= 3.118.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.2.4)
+      aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.7.6)
@@ -116,6 +149,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    jmespath (1.4.0)
     jquery-rails (4.4.0)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -198,9 +232,6 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    refile-mini_magick (0.2.0)
-      mini_magick (~> 4.0)
-      refile (~> 0.5)
     regexp_parser (2.1.1)
     rename (1.0.8)
       activesupport
@@ -322,7 +353,8 @@ DEPENDENCIES
   rails (~> 6.0.0)
   rails-i18n
   refile!
-  refile-mini_magick
+  refile-mini_magick!
+  refile-s3!
   rename
   rspec-rails
   sass-rails (~> 5)

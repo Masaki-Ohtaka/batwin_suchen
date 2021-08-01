@@ -1,3 +1,17 @@
+# アプリケーション名
+「Batwin_suchen」
+
+# アプリケーション概要
+施設者及び補助犬協会向けのキャリアチェンジ犬用マッチングサイト。
+
+## コンセプト
+補助犬種はラブラドル・レドリバーがほとんどですが、ゴールデンレトリバーやプードルもいます。ファミリー層に人気な犬種の譲渡先を手軽に見つけ、補助犬の事を周りに広めて欲しい
+
+## 機能一覧
+・ユーザー登録、ログイン機能(devise)
+
+
+
 # テーブル設計
 
 ## users テーブル
@@ -47,7 +61,7 @@
 ## job_change_dogs テーブル
 
 | Column         | Type        | Options                       |
-| ----------- | ----------- | ----------------------------- |
+| -------------- | ----------- | ----------------------------- |
 | name           | string      | null: false                   |
 | age            | string      | null: false                   |
 | breed_id       | integer     | null: false                   |
@@ -83,7 +97,7 @@
 ## comments テーブル
 
 | Column         | Type       |  Options           |
-| ---------------| ---------- | ------------------ |
+| -------------- | ---------- | ------------------ |
 | text           | string     | null: false,       |
 | user           | references | foreign_key: true  |
 | foundation     | references | foreign_key: true  |
@@ -98,7 +112,7 @@
 ## supports テーブル
 
 | Column           | Type        | Options                        |
-| --------------   | ----------  | ------------------------------ |
+| ---------------- | ----------- | ------------------------------ |
 | user_id          | references  | null: false, foreign_key: true |
 | job_change_dog_id| references  | null: false, foreign_key: true |
 
