@@ -33,8 +33,11 @@
         <%# <div class="prototype__image"> %>
         <div class="previews">
           <div class="slider">
+
+            <%# 修正候補 %>
             <% @job_change_dog.dogs.first(4).each do |image| %> 
                 <%= attachment_image_tag image, :image%> 
+
             <% end %>
           </div>
         </div>
