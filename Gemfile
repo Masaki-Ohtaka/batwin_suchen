@@ -64,6 +64,7 @@ gem 'pry-rails'
 gem 'payjp'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
+gem 'aws-sdk-s3', require: false
 
 #修正候補
 gem "jquery-rails"
