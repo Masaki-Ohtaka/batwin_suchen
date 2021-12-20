@@ -7,12 +7,21 @@ class JobChangeDog < ApplicationRecord
 
   belongs_to :foundation
   has_many :comments, dependent: :destroy
-  has_many :dogs, dependent: :destroy
+
+
+  # has_many :dogs, dependent: :destroy
+  #修正候補2点
+  has_many_attached :images 
+  # accepts_attachments_for :dogs, attachment: :image
+
   has_one  :support
-  accepts_attachments_for :dogs, attachment: :image
+  # accepts_attachments_for :dogs, attachment: :image
 
   with_options presence: true do #プルダウン表記の_idについてリファクタリング出来るのでは？
-    validates :dogs_images
+    # validates :dogs_images
+    #修正候補
+    validates :images
+    
     validates :name
     #in: 0..29の形形だとActiveModel::RangeError発生
     validates :age, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 29},format: { with: /\A[0-9]+\z/, message: 'が認識できません. 半角数字で入力してください' }
@@ -29,14 +38,20 @@ class JobChangeDog < ApplicationRecord
     validates :word
     validates :price, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, format: { with: /\A[0-9]+\z/ }
   end
-    
-    validate :image_length
+    # 画像投稿制限
+    # validate :image_length
 
-  private
-  def image_length
-    if dogs_images.length > 4
-      errors.add(:image_id, 'は4枚以内にしてください')
-    end
-  end
+  # private
+  # def image_length
+  #   # if dogs_images.length > 4
+  #   #   errors.add(:image_id, 'は4枚以内にしてください')
+
+  #   #修正候補2点
+  #   if dogs_images.length > 4
+  #     errors.add(:image_id, 'は4枚以内にしてください')
+
+
+  #   end
+  # end
 
 end

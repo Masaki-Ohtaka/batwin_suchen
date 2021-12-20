@@ -60,10 +60,13 @@ gem 'devise'
 gem 'rename'
 gem 'active_hash'
 gem 'rails-i18n'
-gem 'mini_magick'
 gem 'pry-rails'
-gem 'image_processing'
 gem 'payjp'
+gem 'image_processing', '~> 1.2'
+gem 'mini_magick'
+gem 'aws-sdk-s3', require: false
+
+#修正候補
 gem "jquery-rails"
 gem 'refile-mini_magick', github: 'refile/refile-mini_magick'
 gem 'refile', require: 'refile/rails', github: 'refile/refile'

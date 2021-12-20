@@ -1,9 +1,9 @@
 <div class="card">
   <h3>掲載日　<%= job_change_dog.created_at.strftime("%Y年 %m月 %d日")%> </h3>
   <%# <%if job_change_dog.dogs.present?%>
-  <% job_change_dog.dogs.first(1).each do |image| %> 
+<% job_change_dog.images.first(1).each do |image| %>  
     <div class='item-img-content'> 
-      <%= link_to attachment_image_tag(image, :image,class: "item-img"), job_change_dog_path(job_change_dog.id,class: "item-img") %>
+      <%= link_to image_tag(image, class: "item-img"), job_change_dog_path(job_change_dog.id,class: "item-img") %>
     <% if job_change_dog.support.present? %>
       <div class='family-done'>
       <%= image_tag 'good_icon.png', class: 'card-logo'%>
@@ -11,7 +11,10 @@
       </div>
     <% end %> 
     </div>
-  <% end %> 
+  <% end %>
+
+  <%# 修正候補 %>
+
   <%# <%else%> 
     <%# <%= image_tag 'logo.png'%>
   

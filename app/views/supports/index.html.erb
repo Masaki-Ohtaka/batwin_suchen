@@ -5,9 +5,9 @@
       内容の確認
     </h1>
     <%# 購入内容の表示 %>
-    <% @job_change_dog.dogs.first(1).each do |image| %> 
+    <% @job_change_dog.images.first(1).each do |image| %> 
       <div class='buy-item-info'>
-        <%= attachment_image_tag(image, :image, class: 'buy-item-img') %>
+        <%= image_tag(image, class: 'buy-item-img') %>
       <%# <%= image_tag (@item.image), class: 'buy-item-img' %> 
     <% end %> 
       <div class='buy-item-right-content'>
